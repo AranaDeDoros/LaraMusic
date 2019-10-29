@@ -2,7 +2,7 @@
   <div>
     <div class="mt-3">
     <form @submit.prevent="updateRecord(record)" v-if="editarAlbum">
-      <h3>Editar album</h3>
+      <h3>Edit album</h3>
       <input type="text" placeholder="Artist" class="form-control mb-2" v-model="record.artist" />
       <input type="text" placeholder="Album"  class="form-control mb-2" v-model="record.album"/>
       <input type="text" placeholder="Year" class="form-control mb-2" v-model="record.year"/>
@@ -24,7 +24,7 @@
 
 
        <form @submit.prevent="addRecord" v-else>
-      <h3>Agregar album</h3>
+      <h3>Add album</h3>
       <input type="text" placeholder="Artist" class="form-control mb-2" v-model="record.artist" />
       <input type="text" placeholder="Album"  class="form-control mb-2" v-model="record.album"/>
       <input type="text" placeholder="Year" class="form-control mb-2" v-model="record.year"/>
@@ -44,16 +44,16 @@
 </div>
  
 
-    <h3>Listado de albums</h3>
+    <h3>Listing</h3>
 
       <table class="table">
   <thead>
     <tr>
       <th scope="col">Album</th>
-      <th scope="col">Artista</th>
-      <th scope="col">Año</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Year</th>
       <th scope="col">Status</th>
-      <th scope="col">Acciones</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>

@@ -37387,7 +37387,7 @@ var render = function() {
               }
             },
             [
-              _c("h3", [_vm._v("Editar album")]),
+              _c("h3", [_vm._v("Edit album")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -37555,7 +37555,7 @@ var render = function() {
               }
             },
             [
-              _c("h3", [_vm._v("Agregar album")]),
+              _c("h3", [_vm._v("Add album")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -37700,7 +37700,7 @@ var render = function() {
           )
     ]),
     _vm._v(" "),
-    _c("h3", [_vm._v("Listado de albums")]),
+    _c("h3", [_vm._v("Listing")]),
     _vm._v(" "),
     _c("table", { staticClass: "table" }, [
       _vm._m(2),
@@ -37808,13 +37808,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Album")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Artista")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Artist")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Año")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Year")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Status")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciones")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Actions")])
       ])
     ])
   },
