@@ -20,7 +20,7 @@
 	  </div>
 
         <button type="submit" class="btn btn-success">Save</button>	
-       <button class="btn btn-danger" @click="cancelEdition()">Cancel</button>
+       <button type="button" class="btn btn-danger" @click="cancelEdition()">Cancel</button>
     </form>
 
 

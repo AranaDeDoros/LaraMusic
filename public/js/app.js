@@ -37560,6 +37560,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-danger",
+                  attrs: { type: "button" },
                   on: {
                     click: function($event) {
                       return _vm.cancelEdition()
