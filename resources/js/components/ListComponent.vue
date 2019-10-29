@@ -12,6 +12,7 @@
       <div class="custom-control custom-checkbox mb-2">
 		<input id="statusE" name="statusE" autocomplete="off" 
 		class="custom-control-input" value="accepted" type="checkbox"
+		:checked="wasListened"
 		>
 		<label for="statusE" class="custom-control-label">
 	      Status
@@ -19,7 +20,7 @@
 	  </div>
 
         <button type="submit" class="btn btn-success">Save</button>	
-       <button type="submit" class="btn btn-danger" @click="cancelEdition()">Cancel</button>
+       <button class="btn btn-danger" @click="cancelEdition()">Cancel</button>
     </form>
 
 
@@ -106,6 +107,7 @@ export default {
   			},
   		params:{},
   		editarAlbum:false,
+  		wasListened:false,
   	}
    
   },
@@ -121,7 +123,7 @@ export default {
     });
   		},
   		cancelEdition(){
-  			this.showEditionForm();
+  			this.editarAlbum = false;
   			this.record = {};
   		},
   		showEditionForm(){
@@ -170,8 +172,7 @@ export default {
 
   		},
   		editRecord(item){
-  			this.showEditionForm();
-  			console.log(item);
+  			this.editarAlbum = true;
   			//create params object
   			this.record.artist = item.ARTISTA;
   			this.record.album = item.ALBUM;
@@ -183,13 +184,13 @@ export default {
   			this.record.id_artist = item.IDARTISTA;
   			this.record.id_album = item.IDALBUM;
   			this.record.id_pivot = item.IDPIVOTE;
-  			
-  			if(this.record.status === 1){
-  				//document.getElementById('statusE').checked = true;
-  				//console.log(this.$statusE);
-  			}
-  		
 
+
+  			if(this.record.status === 1){
+  				this.wasListened = true;
+  			}else{
+  				this.wasListened = false;
+  			}
 
 
   		},
@@ -215,10 +216,9 @@ export default {
   					albumBuscar.id === res.data.data[0].id;
   				});
   				 this.albums[idx] = res.data.data[0]; //base de datos
-		         this.record = {};
-		         this.editarAlbum = !editarAlbum;
-		        
-  			});
+		 	});
+		 	this.record = {};
+  			this.editarAlbum = false;
   			 this.getAlbums();
   		},
   		deleteRecord(record, index){

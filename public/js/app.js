@@ -1927,6 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1944,7 +1945,8 @@ __webpack_require__.r(__webpack_exports__);
         id_pivot: ''
       },
       params: {},
-      editarAlbum: false
+      editarAlbum: false,
+      wasListened: false
     };
   },
   created: function created() {
@@ -1960,7 +1962,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     cancelEdition: function cancelEdition() {
-      this.showEditionForm();
+      this.editarAlbum = false;
       this.record = {};
     },
     showEditionForm: function showEditionForm() {
@@ -2001,8 +2003,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     editRecord: function editRecord(item) {
-      this.showEditionForm();
-      console.log(item); //create params object
+      this.editarAlbum = true; //create params object
 
       this.record.artist = item.ARTISTA;
       this.record.album = item.ALBUM;
@@ -2015,8 +2016,10 @@ __webpack_require__.r(__webpack_exports__);
       this.record.id_album = item.IDALBUM;
       this.record.id_pivot = item.IDPIVOTE;
 
-      if (this.record.status === 1) {//document.getElementById('statusE').checked = true;
-        //console.log(this.$statusE);
+      if (this.record.status === 1) {
+        this.wasListened = true;
+      } else {
+        this.wasListened = false;
       }
     },
     updateRecord: function updateRecord(record) {
@@ -2043,10 +2046,9 @@ __webpack_require__.r(__webpack_exports__);
         });
 
         _this3.albums[idx] = res.data.data[0]; //base de datos
-
-        _this3.record = {};
-        _this3.editarAlbum = !editarAlbum;
       });
+      this.record = {};
+      this.editarAlbum = false;
       this.getAlbums();
     },
     deleteRecord: function deleteRecord(record, index) {
@@ -37521,7 +37523,32 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(0),
+              _c(
+                "div",
+                { staticClass: "custom-control custom-checkbox mb-2" },
+                [
+                  _c("input", {
+                    staticClass: "custom-control-input",
+                    attrs: {
+                      id: "statusE",
+                      name: "statusE",
+                      autocomplete: "off",
+                      value: "accepted",
+                      type: "checkbox"
+                    },
+                    domProps: { checked: _vm.wasListened }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "custom-control-label",
+                      attrs: { for: "statusE" }
+                    },
+                    [_vm._v("\n\t      Status\n\t    ")]
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "button",
@@ -37533,7 +37560,6 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-danger",
-                  attrs: { type: "submit" },
                   on: {
                     click: function($event) {
                       return _vm.cancelEdition()
@@ -37689,7 +37715,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "button",
@@ -37703,7 +37729,7 @@ var render = function() {
     _c("h3", [_vm._v("Listing")]),
     _vm._v(" "),
     _c("table", { staticClass: "table" }, [
-      _vm._m(2),
+      _vm._m(1),
       _vm._v(" "),
       _c(
         "tbody",
@@ -37716,8 +37742,8 @@ var render = function() {
             _c("td", [_vm._v(_vm._s(item.ANIO))]),
             _vm._v(" "),
             item.STATUS > 0
-              ? _c("td", [_vm._m(3, true)])
-              : _c("td", [_vm._m(4, true)]),
+              ? _c("td", [_vm._m(2, true)])
+              : _c("td", [_vm._m(3, true)]),
             _vm._v(" "),
             _c("td", [
               _c(
@@ -37754,29 +37780,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "custom-control custom-checkbox mb-2" }, [
-      _c("input", {
-        staticClass: "custom-control-input",
-        attrs: {
-          id: "statusE",
-          name: "statusE",
-          autocomplete: "off",
-          value: "accepted",
-          type: "checkbox"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "custom-control-label", attrs: { for: "statusE" } },
-        [_vm._v("\n\t      Status\n\t    ")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

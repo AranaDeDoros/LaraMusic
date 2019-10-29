@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Artist;
 use App\Album;
 use DB;
-use Carbon\Carbon;
 
 class MusicController extends Controller
 {
@@ -66,27 +65,6 @@ class MusicController extends Controller
         $newAlbum->length = (int) $length;
         $newAlbum->save();
 
-
-/*
-        $newArtist = DB::table('artists')
-            ->insert([
-                'name' => $artist,
-                'country' => $country,
-                "created_at" =>  \Carbon\Carbon::now(),
-                "updated_at" => \Carbon\Carbon::now()
-            ]);
-
-
-        $newAlbum = DB::table('albums')
-            ->insert([
-                'name' => $album,
-                'year' => $year,
-                'ntracks' => (int) $ntracks,
-                'length' => (int) $length,
-                "created_at" =>  \Carbon\Carbon::now(),
-                "updated_at" => \Carbon\Carbon::now()
-            ]);
-*/
 
         if($newArtist !=null && $newAlbum!=null){
             $newArtistID = Artist::orderby('id','desc')->first();
