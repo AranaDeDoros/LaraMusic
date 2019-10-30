@@ -19,6 +19,7 @@ class MusicController extends Controller
     {
          if($request->ajax()){
             $records = $this->getAllRecords()->distinct()->get();
+            //return ($this->getAllRecords()->simplePaginate(15))->toJson();
             return $records->toJson();
         }else{
             return view('home');

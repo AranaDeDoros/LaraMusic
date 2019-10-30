@@ -12,7 +12,7 @@
       <div class="custom-control custom-checkbox mb-2">
 		<input id="statusE" name="statusE" autocomplete="off" 
 		class="custom-control-input" value="accepted" type="checkbox"
-		:checked="wasListened"
+		:checked="wasListened" v-on:change="checkStatus()"
 		>
 		<label for="statusE" class="custom-control-label">
 	      Status
@@ -167,10 +167,21 @@ export default {
       		});
   			}
 
-
+  			this.scrollToBottom();
 
 
   		},
+  		checkStatus(){
+  			console.log(!this.wasListened);
+  			return !this.wasListened;
+
+  		},
+  		scrollToTop() {
+                window.scrollTo(0,0);
+           },
+        scrollToBottom(){
+        		window.scrollTo(0,document.body.scrollHeight);
+        },
   		editRecord(item){
   			this.editarAlbum = true;
   			//create params object
@@ -192,6 +203,8 @@ export default {
   				this.wasListened = false;
   			}
 
+  			this.scrollToTop();
+
 
   		},
   		updateRecord(record){
@@ -203,19 +216,17 @@ export default {
   				country:this.record.country,
   				ntracks: this.record.ntracks,
   				length: this.record.length,
-  				status:this.record.status,
+  				status:this.checkStatus(),
   				id_artist:this.record.id_artist,
   				id_album:this.record.id_album,
   				id_pivot:this.record.id_pivot,
   			} 
 
   			axios.put(`/albums/${params.id_pivot}`,params).then(res=>{
-  				console.log(res.data.data[0]);
-
   				const idx = this.albums.findIndex(albumBuscar=>{
-  					albumBuscar.id === res.data.data[0].id;
+  					albumBuscar.id === res.data.data.id;
   				});
-  				 this.albums[idx] = res.data.data[0]; //base de datos
+  				 this.albums[idx] = res.data.data; //base de datos
 		 	});
 		 	this.record = {};
   			this.editarAlbum = false;

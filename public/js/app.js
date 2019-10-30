@@ -2001,6 +2001,18 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
+
+      this.scrollToBottom();
+    },
+    checkStatus: function checkStatus() {
+      console.log(!this.wasListened);
+      return !this.wasListened;
+    },
+    scrollToTop: function scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+    scrollToBottom: function scrollToBottom() {
+      window.scrollTo(0, document.body.scrollHeight);
     },
     editRecord: function editRecord(item) {
       this.editarAlbum = true; //create params object
@@ -2021,6 +2033,8 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.wasListened = false;
       }
+
+      this.scrollToTop();
     },
     updateRecord: function updateRecord(record) {
       var _this3 = this;
@@ -2033,19 +2047,17 @@ __webpack_require__.r(__webpack_exports__);
         country: this.record.country,
         ntracks: this.record.ntracks,
         length: this.record.length,
-        status: this.record.status,
+        status: this.checkStatus(),
         id_artist: this.record.id_artist,
         id_album: this.record.id_album,
         id_pivot: this.record.id_pivot
       };
       axios.put("/albums/".concat(params.id_pivot), params).then(function (res) {
-        console.log(res.data.data[0]);
-
         var idx = _this3.albums.findIndex(function (albumBuscar) {
-          albumBuscar.id === res.data.data[0].id;
+          albumBuscar.id === res.data.data.id;
         });
 
-        _this3.albums[idx] = res.data.data[0]; //base de datos
+        _this3.albums[idx] = res.data.data; //base de datos
       });
       this.record = {};
       this.editarAlbum = false;
@@ -37536,7 +37548,12 @@ var render = function() {
                       value: "accepted",
                       type: "checkbox"
                     },
-                    domProps: { checked: _vm.wasListened }
+                    domProps: { checked: _vm.wasListened },
+                    on: {
+                      change: function($event) {
+                        return _vm.checkStatus()
+                      }
+                    }
                   }),
                   _vm._v(" "),
                   _c(
