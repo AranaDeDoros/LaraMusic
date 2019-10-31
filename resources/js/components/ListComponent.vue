@@ -5,10 +5,13 @@
       <h3>Edit album</h3>
       <input type="text" placeholder="Artist" class="form-control mb-2" v-model="record.artist" />
       <input type="text" placeholder="Album"  class="form-control mb-2" v-model="record.album"/>
-      <input type="text" placeholder="Year" class="form-control mb-2" v-model="record.year"/>
+      <input type="text" placeholder="Year" class="form-control mb-2" v-model="record.year"
+      pattern="[\d]{4}"/>
       <input type="text" placeholder="Country" class="form-control mb-2" v-model="record.country"/>
-      <input type="text" placeholder="# of tracks" class="form-control mb-2" v-model="record.ntracks" />
-      <input type="text" placeholder="album length" class="form-control mb-2" v-model="record.length" />
+      <input type="text" placeholder="# of tracks" class="form-control mb-2" v-model="record.ntracks"
+      pattern="[\d]+" />
+      <input type="text" placeholder="album length" class="form-control mb-2" v-model="record.length"
+      pattern="[\d]+" />
       <div class="custom-control custom-checkbox mb-2">
 		<input id="statusE" name="statusE" autocomplete="off" 
 		class="custom-control-input" value="accepted" type="checkbox"
@@ -28,10 +31,13 @@
       <h3>Add album</h3>
       <input type="text" placeholder="Artist" class="form-control mb-2" v-model="record.artist" />
       <input type="text" placeholder="Album"  class="form-control mb-2" v-model="record.album"/>
-      <input type="text" placeholder="Year" class="form-control mb-2" v-model="record.year"/>
+      <input type="text" placeholder="Year" class="form-control mb-2" v-model="record.year"
+      pattern="[\d]{4}" />
       <input type="text" placeholder="Country" class="form-control mb-2" v-model="record.country"/>
-      <input type="text" placeholder="# of tracks" class="form-control mb-2" v-model="record.ntracks" />
-      <input type="text" placeholder="album length" class="form-control mb-2" v-model="record.length" />
+      <input type="text" placeholder="# of tracks" class="form-control mb-2" v-model="record.ntracks"
+      pattern="[\d]+" />
+      <input type="text" placeholder="album length" class="form-control mb-2" v-model="record.length"
+      pattern="[\d]+" />
     
       <div class="custom-control custom-checkbox mb-2">
 		<input id="status" name="status" autocomplete="off" 

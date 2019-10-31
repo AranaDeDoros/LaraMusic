@@ -1928,6 +1928,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37457,7 +37463,11 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2",
-                attrs: { type: "text", placeholder: "Year" },
+                attrs: {
+                  type: "text",
+                  placeholder: "Year",
+                  pattern: "[\\d]{4}"
+                },
                 domProps: { value: _vm.record.year },
                 on: {
                   input: function($event) {
@@ -37501,7 +37511,11 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2",
-                attrs: { type: "text", placeholder: "# of tracks" },
+                attrs: {
+                  type: "text",
+                  placeholder: "# of tracks",
+                  pattern: "[\\d]+"
+                },
                 domProps: { value: _vm.record.ntracks },
                 on: {
                   input: function($event) {
@@ -37523,7 +37537,11 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2",
-                attrs: { type: "text", placeholder: "album length" },
+                attrs: {
+                  type: "text",
+                  placeholder: "album length",
+                  pattern: "[\\d]+"
+                },
                 domProps: { value: _vm.record.length },
                 on: {
                   input: function($event) {
@@ -37655,7 +37673,11 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2",
-                attrs: { type: "text", placeholder: "Year" },
+                attrs: {
+                  type: "text",
+                  placeholder: "Year",
+                  pattern: "[\\d]{4}"
+                },
                 domProps: { value: _vm.record.year },
                 on: {
                   input: function($event) {
@@ -37699,7 +37721,11 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2",
-                attrs: { type: "text", placeholder: "# of tracks" },
+                attrs: {
+                  type: "text",
+                  placeholder: "# of tracks",
+                  pattern: "[\\d]+"
+                },
                 domProps: { value: _vm.record.ntracks },
                 on: {
                   input: function($event) {
@@ -37721,7 +37747,11 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2",
-                attrs: { type: "text", placeholder: "album length" },
+                attrs: {
+                  type: "text",
+                  placeholder: "album length",
+                  pattern: "[\\d]+"
+                },
                 domProps: { value: _vm.record.length },
                 on: {
                   input: function($event) {
