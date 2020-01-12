@@ -49,7 +49,7 @@ return [
             'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'musiclog'),
-            'username' => env('DB_USERNAME', 'devflores '),
+            'username' => env('DB_USERNAME', 'devflores'),
             'password' => env('DB_PASSWORD', 'laneros880'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
